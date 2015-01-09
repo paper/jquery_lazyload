@@ -11,6 +11,12 @@
  *
  * Version:  1.9.3
  *
+ * -------------------------------------------------------------
+ *
+ * Version: 1.9.4
+ * by paper
+ *
+ * failure_limit 默认不使用，如果你想使用，可以设置任何大于0的整数
  */
 
 (function($, window, document, undefined) {
@@ -49,7 +55,7 @@
                         /* if we found an image we'll load, reset the counter */
                         counter = 0;
                 } else {
-                    if (++counter > settings.failure_limit) {
+                    if (settings.failure_limit !== 0 && ++counter >= settings.failure_limit) {
                         return false;
                     }
                 }
